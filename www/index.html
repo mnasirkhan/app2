@@ -49,9 +49,22 @@
     font-size: 11px;
 }
         </style>
-        
+         <script src="cordova.js"></script>      
+        <!------------------------>
+      
+        <script>              
+            function onLoad(){
+                alert('here at onLoad');
+                document.addEventListener("deviceReady", deviceReady, false);
+              }
+            
+            function deviceReady() {
+                alert('here at deviceReady')
+                window.location.href = "home.html";
+            }             
+        </script>  
     </head>
-    <body onload="">
+    <body onload="onLoad()">
         <div data-role="page">
             <div data-role="header" data-position="fixed">                 
                     <h1>Reporting</h1>
