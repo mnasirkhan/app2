@@ -54,14 +54,36 @@
       
         <script>              
             function onLoad(){
-                alert('here at onLoad');
+                
                 document.addEventListener("deviceReady", deviceReady, false);
               }
             
-            function deviceReady() {
-                alert('here at deviceReady')
-                window.location.href = "home.html";
-            }             
+            function deviceReady() {                
+//                window.location.href = "home.html";
+            }
+            var _PROJECT_DIR_ = 'http://172.16.5.2/mobile/itmanager/data-files/';
+            function doLogin() {
+                var params = $('#loginfrm').serializeArray();
+                
+                    $.ajax({
+                        type: 'POST',
+                        data: params,
+                        url: _PROJECT_DIR_+'user-ctrl.php',
+                        dataType: 'json',
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            console.log(textStatus + ': ' + errorThrown);
+                        },
+                        success: function (response) {
+                            window.location.href = "home.html";
+//                            if (response.msg == 'failed') {
+////                                alert(response.error_msg);
+//                            } else {
+//                                window.location.replace = 'home.html';
+//                            }
+                        }
+                        
+                    });
+                }
         </script>  
     </head>
     <body onload="onLoad()">
@@ -98,29 +120,7 @@
         <script>
         jQuery.support.cors = true;
 
-            var _PROJECT_DIR_ = 'http://172.16.5.2/mobile/itmanager/data-files/';
-            function doLogin() {
-                var params = $('#loginfrm').serializeArray();
-                
-                    $.ajax({
-                        type: 'POST',
-                        data: params,
-                        url: _PROJECT_DIR_+'user-ctrl.php',
-                        dataType: 'json',
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.log(textStatus + ': ' + errorThrown);
-                        },
-                        success: function (response) {
-                            window.location.href = 'home.html';
-//                            if (response.msg == 'failed') {
-////                                alert(response.error_msg);
-//                            } else {
-//                                window.location.replace = 'home.html';
-//                            }
-                        }
-                        
-                    });
-                }
+            
                             </script>
     </body>
 </html>
