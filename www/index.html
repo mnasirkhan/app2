@@ -68,11 +68,11 @@
 
             function doLogin() {
                 var params = $('#loginfrm').serializeArray();
-                
+                alert('Called');
                     $.ajax({
                         type: 'POST',
                         data: params,
-                        url: _PROJECT_DIR_+'user-ctrl.php',
+                        url: 'http://172.16.5.2/mobile/itmanager/data-files/user-ctrl.php',
                         dataType: 'json',
                         error: function (jqXHR, textStatus, errorThrown) {
                             console.log(textStatus + ': ' + errorThrown);
@@ -87,6 +87,7 @@
                         }
                         
                     });
+                    alert('finished');
                 }
         </script>  
     </head>
