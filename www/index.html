@@ -56,12 +56,16 @@
             function onLoad(){
                 
                 document.addEventListener("deviceReady", deviceReady, false);
+                document.getElementById("myLoginBtn").addEventListener("click", doLogin);
               }
             
             function deviceReady() {                
 //                window.location.href = "home.html";
             }
             var _PROJECT_DIR_ = 'http://172.16.5.2/mobile/itmanager/data-files/';
+            
+            
+
             function doLogin() {
                 var params = $('#loginfrm').serializeArray();
                 
@@ -103,7 +107,7 @@
                         <input data-clear-btn="true" type="password"  name="password" required id="txt-pwd" value="b">
                     </div>
                     <div class="ui-field-contain" align="center">
-                        <input type="button" data-inline="true" class="ui-btn ui-btn-inline" onClick="javascript:return doLogin()" value="Login" />
+                        <input type="button" data-inline="true" class="ui-btn ui-btn-inline" id="myLoginBtn" value="Login" />
                         <input type="reset" data-inline="true" value="Reset" />
                         <div id="address-ajax"></div>
                     </div>
